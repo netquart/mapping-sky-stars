@@ -1,0 +1,9 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^create\.domain\.com$ [OR]
+RewriteCond %{HTTP_HOST} ^www\create.domain\.com$
+RewriteRule .* https://create.domain.com%{REQUEST_URI} [R=301,L]
+</IfModule>

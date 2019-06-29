@@ -1,0 +1,2253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Design your Night Sky Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="lib/d3.min.js"></script>
+    <script type="text/javascript" src="lib/d3.geo.projection.min.js"></script>
+    <script type="text/javascript" src="celestial2.js"></script>
+    <link rel="stylesheet" href="celestial.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    
+    <link rel="icon" type="image/jpg" href="./images/logo4.jpg" />
+    
+     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhBWoIW7bxeFxqjSdVv2ynC01K9wVVEuo&libraries=places"></script>
+ 
+ 
+  <script>
+      
+        
+		var longtitude = '33.330866';
+  
+        var langtitude = '73.053001';
+		
+		
+		google.maps.event.addDomListener(window, 'load', intilize);
+
+        function intilize() {
+           
+            var autocomplete = new google.maps.places.Autocomplete(document.getElementById("txtarea"));
+           
+           google.maps.event.addListener(autocomplete, 'place_changed', function(){
+               
+               var place = autocomplete.getPlace();
+               longtitude=place.geometry.viewport.j.j;
+               langtitude=place.geometry.viewport.l.j;
+            //   long=longtitude;
+            //   lang=langtitude;
+			
+			
+			 if(longtitude!='')
+			   
+               document.getElementById('long').value = Math.round(longtitude);
+			   
+			   if(langtitude!='')
+			   
+			   document.getElementById('lat').value = Math.round(langtitude);
+			
+			
+			
+            })
+         
+        }
+$('#toggle-one').bootstrapToggle();
+
+    </script>
+    
+    <script>
+	
+	
+	
+	
+	
+    angular.module("myapp", [])
+      .controller("MyController", function($scope) {
+        $scope.register = {};
+        $scope.register.countryname = "12 x 18 in |Poster | $55.00";
+
+        $scope.register.countries = [{
+          id: "1",
+          name: "12 x 18 in |Poster | $55.00"
+        }, {
+          id: "2",
+          name: "12 x 18 in | Poster w/ Frame | $110.00"
+        }, {
+          id: "3",
+          name: "18 x 24 in | Poster | $70.00"
+        }, {
+          id: "4",
+          name: "18 x 24 in | Poster w/ Frame | $140.00"
+        },{
+        
+        id: "5",
+        name: "24 x 36 in | Poster | $80.00"
+        },{
+        
+        id: "6",
+        name: "24 x 36 in | Poster w/ Frame | $180.00"
+        }];
+      });
+  </script>
+    
+    <style>
+        html,
+        body,
+        .container-fluid,
+        .row {
+           
+        }
+
+        body {
+            background-image: linear-gradient(to bottom, #09203f , #537895,#29323c);
+
+        }
+        #left_container{
+        	width:520px;height:800px;margin:0px 0px 0px 0px;
+        }
+        #left_container_bottom{
+        width:520px;height:40px;margin:0px 0px 20px 0px;
+        }
+        
+        
+		
+		
+		
+        
+         @media all and (max-width: 2500px) and (min-width: 2000px){
+   
+   #left_container{
+        	margin-left:500px;margin-top:150px;
+        }
+        #left_container_bottom{
+        margin-left:500px;
+        }
+   	}
+        
+        
+        @media all and (max-width: 2000px) and (min-width: 1800px){
+   
+   #left_container{
+        	margin-left:300px;margin-top:150px;
+        }
+        #left_container_bottom{
+        margin-left:300px;
+        }
+   	}
+        
+        
+        
+        @media all and (max-width: 1800px) and (min-width: 1550px){
+   
+   #left_container{
+        	margin-left:250px;margin-top:100px;
+        }
+        #left_container_bottom{
+        margin-left:250px;
+        }
+   	}
+        
+        
+        
+        @media all and (max-width: 1550px) and (min-width: 1440px){
+   
+   #left_container{
+        	margin-left:210px;margin-top:60px;
+        }
+        #left_container_bottom{
+        margin-left:210px;
+        }
+        }
+        
+        
+        
+        @media all and (max-width: 1080px) and (min-width: 991px){
+   
+   #left_container{
+        	margin-left:40px;margin-top:5px;
+        }
+        #left_container_bottom{
+        margin-left:40px;
+        }
+   	}
+   	
+   	
+   	@media all and (max-width: 991px) and (min-width: 750px){
+   
+   #left_container{
+        	width:90%;height:auto;margin-left:50px;margin-top:5px;margin-right:25px;
+        }
+        #left_container_bottom{
+        width:90%;margin-left:50px;margin-right:25px;
+        }
+   	}
+   	
+   	@media all and (max-width: 749px) and (min-width: 580px){
+   
+   #left_container{
+        	width:90%;height:auto;margin-left:30px;margin-top:5px;margin-right:10px;
+        }
+        #left_container_bottom{
+        width:90%;margin-left:30px;margin-right:10px;
+        }
+   	}
+   
+   @media all and (max-width: 580px) and (min-width: 300px){
+   
+   #left_container{
+        	width:100%;height:auto;margin-top:5px;/*margin-left:17px;*/
+        }
+        #left_container_bottom{
+        width:100%;/*margin-left:17px;*/
+        }
+   	}
+   
+   
+   	.toggle.btn
+	{
+   	margin-left:15px;
+   	margin-top:-5px;
+	}
+   
+   
+	.ctrl
+        {
+            margin-top:20px;
+            margin-bottom: 9px;
+            padding-bottom: 9px;
+            border: solid 8px #537895;
+            border-radius:4%;
+            
+           /* margin-left:-95px;*/
+      
+
+        }   
+        .labelmar
+       {
+         margin-left:4%;
+         margin-top:3%;
+         font-variant: small-caps;
+         font-weight:bold;
+         
+       }
+         .labelmar1
+       {
+       	position:absolute;
+          top:50%;
+         right:25%;
+         font-variant: small-caps;
+         font-weight:bold;
+       }
+       
+       .toggle-group btn{
+       position:absolute;
+       top:200px;
+       }
+       .toggle-group .btn-primary{
+       background-color:black;
+       border:0px;
+       }
+       
+         #other input{
+            height: 30px !important;
+            width: 15% !important;
+            
+        }
+        
+        #background-fill,#border-fill,#toggle-one
+        {
+            margin-left:13%;
+        }
+       
+       
+	   
+		
+		
+	   
+ 
+ 	                 @media only screen and (max-width: 2500px)and (min-width: 2300px){
+       
+      
+       body{
+       height:1546px;
+       }
+       
+       .ctrl
+        {
+ 	    margin-top:75px;
+           /* margin-left:-185px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:50px;
+        font-size:28px;
+        }
+        
+        #other input{
+            height: 50px !important;
+            width: 15% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:50px;
+   margin-top:-30px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:65%;
+         right:24%;
+        
+       }
+       
+       }
+ 
+ 
+ 
+ 
+ 
+       
+          @media only screen and (max-width: 2300px)and (min-width: 2100px){
+       
+       body{
+       height:1446px;
+       }
+       .ctrl
+        {
+ 		margin-top:60px;
+           /* margin-left:-175px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:50px;
+        font-size:28px;
+        }
+        
+        #other input{
+            height: 50px !important;
+            width: 15% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:50px;
+   margin-top:-30px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:63%;
+         right:23%;
+        
+       }
+       
+       }
+       
+       
+   
+   
+   
+          @media only screen and (max-width: 2100px)and (min-width: 1900px){
+       
+       body{
+       height:1300px;
+       }
+       .ctrl
+        {
+ 		margin-top:60px;
+            /*margin-left:-145px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:30px;
+        font-size:28px;
+        }
+        
+        #other input{
+            height: 50px !important;
+            width: 15% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:50px;
+   margin-top:-30px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:61%;
+         right:20%;
+        
+       }
+       
+       }    
+       
+       
+       
+       
+       
+       
+       
+       
+       @media only screen and (max-width: 1900px)and (min-width: 1700px){
+       
+       body{
+       height:1200px;
+       }
+       
+       .ctrl
+        {
+ 		margin-top:50px;
+            /*margin-left:-125px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:30px;
+        font-size:24px;
+        }
+        
+        #other input{
+            height: 50px !important;
+            width: 15% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:50px;
+   margin-top:-30px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:60%;
+         right:20%;
+        
+       }
+       
+       }
+       
+       
+       
+        @media only screen and (max-width: 1700px)and (min-width: 1600px){
+       
+       body{
+       height:1170px;
+       }
+       
+       .ctrl
+        {
+ 	    margin-top:40px;
+            /*margin-left:-125px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:30px;
+        font-size:22px;
+        }
+        
+        #other input{
+            height: 50px !important;
+            width: 15% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:50px;
+   margin-top:-35px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:57%;
+         right:18%;
+        
+       }
+       
+       }
+       
+       
+       
+       
+        @media only screen and (max-width: 1600px)and (min-width: 1500px){
+       
+       .ctrl
+        {
+ 	    margin-top:30px;
+            /*margin-left:-115px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:30px;
+        font-size:22px;
+        }
+        
+        #other input{
+            height: 45px !important;
+            width: 14% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:50px;
+   margin-top:-35px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:55%;
+         right:19%;
+        
+       }
+       
+       }
+       
+       
+       
+            
+        @media only screen and (max-width: 1500px)and (min-width: 1400px){
+       
+       .ctrl
+        {
+ 	    margin-top:30px;
+           /* margin-left:-105px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:23px;
+        font-size:20px;
+        }
+        
+        #other input{
+            height: 45px !important;
+            width: 14% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:40px;
+   margin-top:-35px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:50%;
+         right:19%;
+        
+       }
+       
+       }
+       
+       @media only screen and (max-width: 2500px)and (min-width: 991px){
+		   
+		
+		.setfloat{float:left;}   
+		   
+		   
+	   }
+       
+       
+        @media only screen and (max-width: 1400px)and (min-width: 1300px){
+       
+       .ctrl
+        {
+ 	    margin-top:25px;
+            /*margin-left:-95px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:23px;
+        font-size:18px;
+        }
+        
+        #other input{
+            height: 40px !important;
+            width: 13% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:30px;
+   margin-top:-20px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:48%;
+         right:24%;
+        
+       }
+       
+       }
+       
+       
+       
+       
+          @media only screen and (max-width: 1300px)and (min-width: 1200px){
+       
+       .ctrl
+        {
+ 	    margin-top:20px;
+            /*margin-left:-90px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:23px;
+        font-size:18px;
+        }
+        
+        #other input{
+            height: 40px !important;
+            width: 13% !important;
+            
+        }
+        .toggle.btn
+	{
+   margin-left:30px;
+   margin-top:-20px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top: 40%;
+
+         right: 21%;
+        
+       }
+       .labelmar{
+       	font-size:14px;
+       	
+       }
+       
+       }
+       
+       
+                @media only screen and (max-width: 1200px)and (min-width: 1100px){
+       
+       .ctrl
+        {
+ 	    margin-top:10px;
+           /* margin-left:-80px;*/
+      
+
+        }
+        #title_heading{
+        margin-top:10px;
+        font-size:18px;
+        }
+        
+        #other input{
+            height: 40px !important;
+            width: 13% !important;
+            
+        }
+        
+        #background-fill,#border-fill,#toggle-one
+        {
+            margin-left:10%;
+        }
+        .toggle.btn
+	{
+   margin-left:20px;
+   margin-top:-5px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top: 55%;
+		 right: 37%;
+         color:#537895;
+        
+       }
+       .labelmar{
+       	font-size:14px;
+       	
+       }
+	   
+	   #html-content-holder{width:87%;}
+       
+       }
+       
+       
+       
+         
+       
+       @media only screen and (max-width: 1100px)and (min-width: 991px){
+       	.toggle.btn
+{
+   margin-left:60px;
+   margin-top:10px;
+}
+       	
+       	
+       	.labelmar1
+       {
+       	
+         top:74%;
+         right:95%;
+        
+       }
+       
+       .ctrl{
+       /*margin-left:-75px;*/
+       }
+	   
+	   #html-content-holder{width:100%;}
+
+	   
+	   
+       }
+       
+       
+       
+       
+       
+       @media only screen and (max-width: 991px)and (min-width: 850px){
+       
+       .ctrl
+        {
+ 	    margin-top:60px;
+            
+      
+
+        }
+        #title_heading{
+        margin-top:50px;
+        font-size:32px;
+        }
+        
+        #other input{
+            height: 80px !important;
+            width: 16% !important;
+            
+        }
+        
+        #background-fill,#border-fill,#toggle-one
+        {
+            margin-left:10%;
+        }
+        .toggle.btn
+	{
+   margin-left:89px;
+   margin-top:-63px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:62%;
+         right:16%;
+         
+        
+       }
+       .labelmar{
+       	font-size:18px;
+       	
+       }
+       #second_col{
+       margin-top:20px;
+       }
+	   
+	    #html-content-holder{width:100%;}
+       
+       }
+       
+      
+      
+      
+      
+             @media only screen and (max-width: 850px)and (min-width: 725px){
+       
+       .ctrl
+        {
+ 	    margin-top:50px;
+            
+
+        }
+        #title_heading{
+        margin-top:40px;
+        font-size:28px;
+        }
+        
+        #other input{
+            height: 70px !important;
+            width: 15% !important;
+            
+        }
+        
+        #background-fill,#border-fill,#toggle-one
+        {
+            margin-left:10%;
+        }
+        .toggle.btn
+	{
+   margin-left:70px;
+   margin-top:-55px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:61%;
+         right:19%;
+         
+        
+       }
+       .labelmar{
+       	font-size:18px;
+       	
+       }
+       #second_col{
+       margin-top:20px;
+       }
+	   
+	    #html-content-holder{width:100%;}
+       
+       }
+      
+       
+       
+                    @media only screen and (max-width: 725px)and (min-width: 650px){
+       
+       .ctrl
+        {
+ 	    margin-top:40px;
+            
+
+        }
+        #title_heading{
+        margin-top:30px;
+        font-size:26px;
+        }
+
+        
+        #other input{
+            height: 60px !important;
+            width: 14% !important;
+            
+        }
+        
+        #background-fill,#border-fill,#toggle-one
+        {
+            margin-left:10%;
+        }
+        .toggle.btn
+	{
+   margin-left:70px;
+   margin-top:-45px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:58%;
+         right:20%;
+         
+        
+       }
+       .labelmar{
+       	font-size:18px;
+       	
+       }
+       #second_col{
+       margin-top:20px;
+       }
+	   
+	    #html-content-holder{width:100%;}
+       
+       }
+       
+       
+      
+       
+       @media only screen and (max-width: 650px)and (min-width: 576px){
+       
+       .ctrl
+        {
+ 	    margin-top:73px;
+            
+
+        }
+        #title_heading{
+        margin-top:20px;
+        font-size:20px;
+        }
+        
+        #other input{
+            height: 50px !important;
+            width: 13% !important;
+            
+        }
+        
+        #background-fill,#border-fill,#toggle-one
+        {
+            margin-left:10%;
+        }
+        .toggle.btn
+	{
+   margin-left:50px;
+   margin-top:-25px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top:56%;
+         right:25%;
+         
+        
+       }
+       .labelmar{
+       	font-size:18px;
+       	
+       }
+       #second_col{
+       margin-top:20px;
+       }
+	   
+	    #html-content-holder{width:100%;}
+       
+       }
+       
+       
+       
+              @media only screen and (max-width: 576px)and (min-width: 450px){
+       
+       .ctrl
+        {
+ 	    margin-top:25px;
+ 	    margin-left:-10px;
+            
+
+        }
+        #title_heading{
+        margin-top:10px;
+        font-size:18px;
+        }
+        
+        #other input{
+            height: 50px !important;
+            width: 13% !important;
+            
+        }
+        
+        #background-fill,#border-fill,#toggle-one
+        {
+            margin-left:10%;
+        }
+        .toggle.btn
+	{
+   margin-left:30px;
+   margin-top:-33px;
+	}
+  
+        .labelmar1
+       {
+       	
+         top: 48%;
+
+         right: 13%;
+         
+        
+       }
+       .labelmar{
+       	font-size:16px;
+       	
+       }
+       #second_col{
+       margin-top:20px;
+       }
+	   
+	    #html-content-holder{width:100%;}
+       
+       }
+       
+       
+    
+       @media only screen and (max-width: 450px)and (min-width: 300px){
+       
+       .ctrl
+        {
+ 	    margin-top:20px;
+ 	    margin-left:-10px;
+            
+
+        }
+        #title_heading{
+        margin-top:10px;
+        font-size:18px;
+        }
+        
+        #other input{
+            height: 40px !important;
+            width: 12% !important;
+            
+        }
+        
+        #background-fill,#border-fill,#toggle-one
+        {
+            margin-left:10%;
+        }
+        .toggle.btn
+	{
+   margin-left:20px;
+   margin-top:-5px;
+	}
+  
+        .labelmar1
+       {
+       	
+        top: 52%;
+
+        right: 28%;
+         
+        
+       }
+       .labelmar{
+       	font-size:14px;
+       	
+       }
+       #second_col{
+       margin-top:20px;
+       }
+	   
+	   
+	    #html-content-holder{width:100%;}
+       
+       }
+    
+    
+    
+       
+       #castm
+            {
+              margin-top:0.3rem!important;
+              font-variant: small-caps;
+              font-weight:bold;
+              font-size:15px;
+
+            }
+        #where_do{
+        	font-variant: small-caps;
+        	font-weight:bold;
+        	font-size:14px;
+        }
+                     
+        .container-fluid {}
+
+        .celestial-form #location {
+            border-top: 0 !important;
+        }
+        .mapbo
+       {
+          overflow:hidden!important;width:400px;height:400px;padding:0px;margin-top:1rem;
+
+
+       }
+        #txtarea{
+            
+            width:460px;
+        }
+ 
+        .form-control-lg {
+            /* box-shadow: rgba(17, 17, 17, 0.2) 0px 0px 3px; */
+            /* height:calc(2.875rem + 2px);*/
+          
+            /* border-bottom: 2px solid red !important; */
+        }
+
+        .form-group,
+        .moment {
+            /*          background: white;*/
+            /*          border: 2px solid black;*/
+            /*          border-radius: 2%;*/
+            padding: 0rem 0.5rem;
+        }
+
+        .background-gradient {
+            width: 0;
+            height: 0;
+            border-top: 3000px solid hsla(0, 0%, 100%, .08);
+            border-left: 2000px solid transparent;
+            position: fixed;
+            top: 0;
+            left: calc(30vw + 60px);
+            z-index: 1;
+        }
+        .color1
+        {-webkit-appearance: square-button;
+            width: 44px;
+            height: 23px;
+            background-color: buttonface;
+            cursor: default;
+            border-width: 3px;
+            border-style: solid;
+            border-color: rgb(169, 169, 169);
+            border-image: initial;
+            padding: 1px 1px;
+            cursor:pointer;
+            background-color:#000;
+            border-radius:3px;
+        }
+        .color2
+        {-webkit-appearance: square-button;
+            width: 44px;
+            height: 23px;
+            background-color: buttonface;
+            cursor: default;
+            border-width: 3px;
+            border-style: solid;
+            border-color: rgb(169, 169, 169);
+            border-image: initial;
+            padding: 1px 1px;
+            cursor:pointer;
+            background-color:#000045;
+            border-radius:3px;
+        }
+        .color3
+        {-webkit-appearance: square-button;
+            width: 44px;
+            height: 23px;
+            background-color: buttonface;
+            cursor: default;
+            border-width: 3px;
+            border-style: solid;
+            border-color: rgb(169, 169, 169);
+            border-image: initial;
+            padding: 1px 1px;
+            cursor:pointer;
+            background-color:white;
+            border-radius:3px;
+        }
+        input {
+            /*          border: 0 !important;*/
+            /*          border-bottom: 2px red solid !important;*/
+        }
+
+        /*
+      #map-container{
+          height: 80%;
+          width:100%;
+          margin: auto;
+          border: 15px white;
+          border-style: inset;
+          border-radius: 5px;
+          padding: 1rem;
+          
+      } #map-container .col-md-5{
+          border: 5px solid white;
+          border-radius: 5px;
+          
+      } 
+        .the-map
+        {
+           padding: 0rem 0rem;margin:auto;
+        
+         }          
+*/      #myrow
+        {
+             min-height: 88%!important;
+        }
+        #map-elements {
+            background: black;
+            border: 4px solid white;
+            border-radius: 5px;
+        }
+
+        .text {
+            font-size: 1.4rem;
+            font-weight: bold;
+            /* text-align: center; */
+
+        }
+
+        canvas {
+            margin-left: 0px;
+            margin-width:237px;
+        }
+
+        #location {
+            border: 0;
+        }
+  #price
+      {
+       float: left;margin-top:0.6rem;margin-left: 3px;width: 100%;height: 46px;
+      }
+   #labelemail
+   {
+     float:left;   padding-top: 10px;
+
+    }
+  #emailid
+  {
+     width:100%;margin-left:3px;margin-top:0.3rem; float:left;
+  
+   }
+   #emailid,#poster_title,#message,#messager::placeholder{
+   /*font-variant: small-caps;*/
+   }
+/*#toggle-one
+{
+   margin-left:30%;
+   width:30%;
+}*/
+ #celestial-map canvas 
+             { display: inline-block; position:absolute;width:100%; z-index:12; cursor:hand; cursor:grab; cursor:-webkit-grab; }
+          
+  #emailbutton
+  {
+   float: left;margin-top:0.3rem;margin-left:4px; width:100%;border:none;
+   }
+   
+   
+   @media all and (max-width: 1050px) and (min-width: 990px){
+   
+     .mapbo
+       {
+          
+          width:270px;
+          height:270px;
+         
+       }
+       
+       #celestial-map canvas 
+             { width:100%;}
+ 
+    
+        
+   }
+   
+      @media all and (max-width: 990px) and (min-width: 768px){
+   
+     .mapbo
+       {
+          
+          width:500px;
+          height:500px;
+       }
+       
+       #celestial-map canvas 
+             { width:100%;}
+             
+     .remove_padding{padding-right: 0px !important;
+
+padding-left: 0px !important;}  
+   
+   }
+   
+   
+   @media all and (max-width: 768px) and (min-width: 425px){
+   
+    .remove_padding{padding-right: 0px !important;
+
+padding-left: 0px !important;}
+       
+       
+       #second_col{
+       margin-top:20px;
+       }
+
+   }
+   
+   #changed-color{height: 710px;}
+   
+    @media only screen and (max-width: 990px)and (min-width: 678px){
+   
+   #changed-color{height:auto !important;}
+	}
+
+        @media only screen and (max-width: 520px) {
+            .the-map {
+                padding: 4rem 1.6rem;
+            }
+      
+           .labelmar
+       {
+         margin-left:3%;
+       }
+         .labelmar1
+       {
+         margin-left:4%;
+       }
+             .the-map
+        {
+           width:300px!important;padding: 0rem 0rem;
+        
+         }
+            .mapbo
+       {
+          width:185px;height:185px;margin-left:-10px;margin-top:-10;
+
+
+       }
+	   
+	   .remove_padding{padding-right: 0px !important;
+
+padding-left: 0px !important;}
+       
+       #celestial-map canvas 
+             { width:100%;}
+            #castm
+            {
+              margin-top:0.6rem!important;
+              margin-left:-3px;
+               
+
+            }
+            html,
+            body,
+            .container-fluid,
+            .row {
+                padding: 9px;
+            }
+            #pricelabel
+            {
+                float: left;
+                padding-top: 10px;
+                margin-left: 20%;
+              
+           }
+            #celestial-map canvas 
+             {width:100%;}
+           #price
+           {
+               float: left;
+               margin-top: 0.6rem;
+               margin-left: 16px;
+               width: 89%;
+               height: 46px;
+           }
+          #labelemail
+         {
+           float: left;
+          padding-top: 10px;
+          margin-left: 12%;
+
+          }
+         #email {
+        width: 100%;
+        margen-left: 3px;
+        margin-top: 0.3rem;
+         float: left;
+          }
+           #emailbutton {
+         background: black;
+         float: left;
+         margin-top: 0.3rem;
+         margin-left: 0rem;
+         width: 100%;
+         }
+        
+        }
+       
+       
+       
+     
+         
+      #formdate{width:100%;}
+        
+
+        #loc
+        {
+            border: solid 8px #537895;
+            border-radius:4%;
+            padding:4%;
+            width:100%;
+        }
+        #loc input{
+        
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        padding: .5rem 1rem;
+       line-height: 1.5;
+       border-radius: .3rem;
+       height:40px;
+        
+        }
+        .todayday,.todaymonth
+        {
+            width:31%;
+            margin-right:3%;
+            border: solid 2px #537895;
+
+        }
+        .todayyear
+        {
+            width:32%;
+            border: solid 2px #537895;
+        }
+        .labelmark
+        {
+            margin:auto;
+            width:100%!important;
+            font-style:bold;
+            text-align: center;
+        }
+        #txtarea{
+            width:100% !important;
+            height:200px;
+            border:20px solid black;
+        }
+       
+        @media only screen and (max-width: 449px)and (min-width: 355px){
+	   
+	     
+		 
+		 .labelmar1 {
+
+          top: 43%;
+          right: 28%;
+
+          }
+	   
+	   
+		}
+ 
+       	 @media only screen and (max-width: 576px)and (min-width: 449px){
+	   
+	     
+		 
+		 .labelmar1 {
+
+          top: 43%;
+          right: 29%;
+
+          }
+	   
+	   
+		}
+		
+			 @media only screen and (max-width: 576px)and (min-width: 576px){
+	   
+	     
+		 
+		 .labelmar1 {
+
+          top: 49%;
+
+right: 26%;
+
+          }
+	   
+	   
+		}
+		
+		
+		 @media only screen and (max-width: 849px)and (min-width: 726px){
+	   
+	     
+		 
+		 .labelmar1 {
+
+        top: 53%;
+
+        right: 23%;
+
+          }
+	   
+	   
+		}
+		
+		
+		
+		 @media only screen and (max-width: 980px)and (min-width: 849px){
+	   
+	     
+		 
+		 .labelmar1 {
+
+       top: 55%;
+
+right: 20%;
+
+          }
+	   
+	   
+		}
+		
+		 .settwid {
+
+      width:95%;
+
+          }
+		
+		
+       	 @media only screen and (max-width: 990px)and (min-width: 300px){
+	   
+	     
+		 
+		 .settwid {
+
+      width:97%;
+
+          }
+	   
+	   
+		}
+
+ #html-content-holder {
+
+      height: 840px;
+
+          }
+
+
+@media only screen and (max-width: 990px)and (min-width: 300px){
+	   
+	     
+		 
+		 #html-content-holder {
+
+      height: auto;
+
+          }
+	   
+	   
+		}
+
+
+@media only screen and (max-width: 725px)and (min-width: 650px){
+
+.labelmar1{top: 50%;
+
+right: 25%;}
+
+}
+
+@media only screen and (max-width: 989px)and (min-width: 981px){
+
+.labelmar1{top: 56%;
+
+right: 20%;}
+
+}
+
+@media only screen and (max-width: 1004px)and (min-width: 992px){
+
+.labelmar1{top: 53%;
+
+right: 17%;}
+
+}
+
+@media only screen and (max-width: 1099px)and (min-width: 1005px){
+
+.labelmar1{top: 45%;
+
+right: 17%;}
+
+}
+
+
+
+
+@media only screen and (max-width: 1300px)and (min-width: 1100px){
+
+.labelmar1{top: 40%;
+
+right: 24%;}
+
+}
+
+
+@media only screen and (max-width: 1401px) and (min-width: 1301px){
+
+.labelmar1{top: 48%;
+
+right: 18%;}
+
+}
+
+@media only screen and (max-width: 991px) and (min-width: 990px){
+
+.labelmar1{top: 56%;
+
+right: 20%;}
+
+}
+
+
+ .modal { overflow: auto !important; }
+        
+     
+        </Style>
+        
+        <!--<script src="lib/html2canvas.js"></script>-->
+        
+        <script src="canvas.js"></script>
+</head>
+
+<body ng-app="myapp" ng-controller="MyController">
+
+<form action="payment.php" method="post" onSubmit="return validateit(this);">
+
+
+    <div class="container-fluid">
+        <div class="row" style="margin-top:1.5rem;" >
+            <div class="col-lg-7 col-sm-12 remove_padding" style="display: flex;justify-content: center;">
+                <div id="html-content-holder" >
+                <div id="left_container" style="background-color:black;border-top:30px solid rgb(225, 227, 228);border-right:25px solid rgb(225, 				 
+                227, 228);border-left:25px solid rgb(225, 227, 228);border-radius:1% 1% 0px 0px;padding:2rem 1rem 2rem 1rem;">
+                
+                <div id="changed-color" style="border:4px solid white;border-radius:1%;padding: 1rem;background:black;">
+                
+                
+                  <div id="celestial-map"></div>
+                
+                
+                <div class="col-md-12 text" style="margin-bottom:2rem;margin-top:2rem;text-align: center;">
+                                <p id="header_text" style="text-align: center;color:white;color:white;margin-bottom: 1rem;">Night Sky Maps</p><span id="header_msg" style="text-align: center; font- size: 10px;color:white;">The Night We First Meet</span><br>
+                                <span id="header_msgr" style="text-align: center; font-size: 16px;color:white;">Seen from San Francisco, CA </span>
+                                
+                                 <br /><span  id="header_msg2" style="text-align: center; font-size: 14px;color:white;"></span>
+ 
+                            </div>
+  
+                </div>
+                
+                
+                </div>
+                
+                
+                <div id="left_container_bottom" style="background-color:rgb(225, 227, 228);" class="text-center">
+                <span style="font-size: 16px;color:black;font-weight:bold;margin-top:10px;" id="locposter"> 12 x 18 in |Poster | $55.00</span>
+                </div>
+                
+                </div>
+                
+                
+
+                
+                
+            </div>
+            
+            
+            
+            <div class="col-lg-4 col-sm-12 ml-auto mr-auto" id="second_col" style="background:white;margin-bottom:20px;border-top:30px solid rgb(225, 227, 228);border-bottom:25px solid rgb(225, 227, 228);border-right:25px solid rgb(225, 227, 228);border-left:25px solid rgb(225, 227, 228);border-radius:1%;margin-right: 2rem;">
+                
+                
+                <div class="moment mb-2" style="margin-top:0.3rem;">
+                    <div class="row">
+                        
+                        <div class="col-md-3 col-sm-3"><img src="./images/logo4.jpg"  class="img-fluid">
+
+                      
+                   </div>
+                        <div class="col-md-9 col-sm-9"> <h5 class="text-center" id="title_heading" style="font-variant: small-caps;font-weight:bold;">Design Your Night Sky Map</h5></div>
+                         
+                         
+                         <div class="col-lg-12 addnew">
+                         
+                         
+                         
+                         </div>
+                        
+                    </div>
+                   
+                    
+                    <div id="celestial-form" style="border-radius:2%;"></div>
+                </div>
+                <div class="text" style="margin-bottom:0.5rem;">
+                  
+
+                        <div class="form-row">
+                            <div class="row settwid" style=" border: solid 8px #537895;border-radius:4%; margin-left: 10px; ">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label for="header" style="font-variant: small-caps;font-size:15px;margin-bottom:-5px;">Add Your Title Message:</label>
+                                        <input id="poster_title" value="" name="poster_title" type="text" class="form-control form-control-lg" style="margin-bottom:-17px;"  placeholder="Night Sky Map" onkeydown="">
+                                        
+                                        
+                                       
+                                        
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-12" style="padding-bottom:0px!important;">
+                                    <div class="form-group">
+                                    <label for="footer" style="font-variant: small-caps;font-size:15px;margin-bottom:-5px;">Edit Your Message Details:</label>
+                                    <input id="message" name="message" type="text" class="form-control form-control-lg" style="margin-bottom:-17px;"  placeholder="The night we first met">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                    <label for="footer" style="font-variant: small-caps;font-size:15px;margin-bottom:-2px;">Time of Your Special Moment:?</label>
+                                    <input id="messager" name="messager" type="text" class="form-control form-control-lg" id="footera" style="margin-bottom:-5px;" placeholder="Seen from San Francisco, CA on Month, Day Year">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row settwid" style=" border: solid 8px #537895;border-radius:4%; margin-left: 10px; margin-top:7px;padding-bottom: 10px;">
+                                <div class="col-12">
+                                    <div class="form-group " >
+                                        <label for="price" id="pricelabel" style="float: left; padding-top: 10px;font-variant:small-caps;font-size:15px;margin-bottom:-6px;">Choose a Size:</label>
+                                        <!--<select id="price" name="posters" ng-model="register.countryname" ng-options="country.name as country.name for country in register.countries" class="form-control form-control-lg" style="font-size:15px;">
+                                                
+                                        </select>-->
+                                        
+                                        
+                                        <select id="price" name="posters" class="form-control form-control-lg" style="float: left; padding-top: 10px;font-variant:small-caps;font-size:15px;margin-bottom:-6px;" onChange="setposter();">
+                                               <option value="12-18">12x18 Poster in  | (60 x 90 cm)  | $55.00</option>
+                   <option value="12-18F">12x18 Poster w/ Frame in  | (60 x 90 cm)  | $110.00</option>
+                    <option value="18-24">18x24 Poster in  | (60 x 90 cm)  | $70.00</option>
+                    
+                    <option value="18-24F">18x24 Poster w/ Frame  | (60 x 90 cm)  | $140.00</option>
+                   <option value="24-36">24x36 Poster in  | (60 x 90 cm)  | $80.00</option>
+                    <option value="24-36F">24x36 Poster w/ Frame  | (60 x 90 cm)  | $180.00</option>
+                                        </select>
+                                        
+                                        
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb1 settwid" style=" border: solid 8px #537895;border-radius:4%; margin-left: 10px;  padding-bottom: 10px;margin-top:7px;" >
+                                    <div class="col-12">
+                                        <div class="form-group ">
+                                            <label for="email" id="labelemail"  style="font-variant: small-caps; font-size:15px;margin-bottom:-6px;">Enter your Email.</label><br>
+                                            <input type="email" class="form-control form-control-lg" name="email" id="emailid" placeholder="Your Email Address" style="">
+                                           
+                                           
+                                           
+                                           <label for="purchase_pdf" id="labelemail"  style="font-variant: small-caps; font-size:15px;margin-bottom:-6px;">Purchase PDF File?</label>
+                                            <input type="checkbox" class="form-check" name="purchase_pdf" value="yes" id="purchase_pdf"  style="display: inline-block;margin-left: 10px;"><br />
+                                           
+                                           
+                                           
+                                           <!-- <button type="submit" class="btn btn-dark  btn-lg" id="emailbutton" style="">Submit</button>-->
+                                            
+                                            
+                                            <input type="button" name="submit" id="prvw" class="btn btn-dark  btn-lg" style="background:black; float: left; margin-top: 10px;" value="Proceed" />
+                                            
+                                            
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            <div class="col-12 text-center">
+                            </div>
+                        </div>
+                    
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    
+    
+    
+     <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Completed</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       
+       <div style="" class="col-lg-7 col-sm-12 setfloat">
+       <img src="" id="up_img"  style="cursor:pointer;width:100%;height:auto;">
+       
+       </div>
+       
+       <div style="" class="col-lg-5 col-sm-12 setfloat">
+       
+       <div class="col-lg-12"><input type="submit" name="submit_amazon" value="Submit Your Map"  id="postdata" class="btn btn-dark  btn-lg" style="background:black; float: left;margin-top: 10px;" /></div>
+       
+        <div style="font-size: 12px;margin-bottom: 10px;margin-top: 10px;float:left;" class="col-lg-12"><!--<a href="" id="pdf_created" target="_blank">Purchase PDF File</a>--></div>
+       
+       <div style="font-size: 12px;margin-bottom: 10px;float:left;" class="col-lg-12" id="loc2"></div>
+       <div style="font-size: 12px;margin-bottom: 10px;float:left;" class="col-lg-12" id="time_spec"></div>
+       <div style="font-size: 12px;margin-bottom: 10px;float:left;" class="col-lg-12" id="loc_title"></div>
+       <div style="font-size: 12px;margin-bottom: 10px;float:left;" class="col-lg-12" id="loc_detail"></div>
+       <div style="font-size: 12px;margin-bottom: 10px;float:left;" class="col-lg-12" id="loc_time"></div>
+       <div style="font-size: 12px;margin-bottom: 10px;float:left;" class="col-lg-12" id="loc_poster"></div>
+       <div style="font-size: 12px;margin-bottom: 10px;float:left;" class="col-lg-12" id="loc_email"></div>
+       
+      <div style="font-size: 12px;margin-bottom: 10px;float:left;" class="col-lg-12" id="loc_pdf"></div>
+       
+       
+       
+       </div>
+       
+        
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+     <input type="hidden" name="lat" id="lat">
+    
+    <input type="hidden" name="long" id="long">
+    
+     <input type="hidden" name="filename" id="filename">
+     
+     
+    <input type="hidden" name="ready_submit" id="ready_submit" value="">
+    
+    
+    
+    
+    
+    </form>
+    <script>
+      
+	  function setposter()
+	  
+	  {
+		  
+		  document.getElementById('locposter').innerHTML=$("#price :selected").text();
+		  
+		  
+		  }          
+      
+        const $source = document.querySelector('#poster_title');
+        const $result = document.querySelector('#header_text');
+
+        const typeHandler = function (e) {
+            $result.innerHTML = e.target.value;
+        }
+
+        $source.addEventListener('input', typeHandler)</script>
+    <script>
+        const $message = document.querySelector('#message');
+        const $result2 = document.querySelector('#header_msg');
+
+        const typeHandler2 = function (e) {
+            $result2.innerHTML = e.target.value;
+        }
+
+        $message.addEventListener('input', typeHandler2)</script>
+          <script>
+                const $messager = document.querySelector('#messager');
+                const $result3 = document.querySelector('#header_msgr');
+        
+                const typeHandler3 = function (e) {
+                    $result3.innerHTML = e.target.value;
+                }
+        
+                $messager.addEventListener('input', typeHandler3)</script>
+
+    <script type="text/javascript">
+
+
+        Celestial.display({
+            form: true,
+            location: true,
+            width: "100%",
+            projection: "airy",
+            datapath: "data/",
+            planets: { show: false },
+            controls: false,
+            stars: {
+                colors: false,
+                names: false,
+                size: 3,
+                namelimit: 0,
+            },
+            dsos: {
+                names: false,
+                show: false,
+            },
+            constellations: {
+                show: false,
+                names: false,
+            }
+        });
+        Celestial.rotate({ center: [18, 18] });
+    </script>
+
+    <script src="jquery.js"></script>
+   
+    <script src="bootstrap.js"></script>
+    
+      <link rel="stylesheet" href="bootstrap.css">
+    
+      
+ <script>
+$(document).ready(function(){
+	
+var today = new Date();
+var date = (today.getMonth()+1)+'-'+today.getDate()+'-'+today.getFullYear();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+
+
+
+document.getElementById('header_msg2').innerHTML=dateTime;	
+	
+	
+	
+	
+/*
+html2canvas(document.querySelector("#capture")).then(canvas => {
+    document.body.appendChild(canvas)
+});*/
+
+
+	
+	
+
+	
+var element = $("#html-content-holder"); // global variable
+var getCanvas; // global variable
+ 
+    //$("#btn-Preview-Image").on('click', function () {
+      
+	  $("#prvw").on('click', function () {
+		//alert(document.getElementById('prvw').value)  
+	    
+		  
+		/*if(document.getElementById('txtarea').value=='')
+		{
+		alert('Please enter address to proceed')
+		
+		return false;
+		
+		//document.getElementById('txtarea').focus();
+		
+		}*/
+		
+		if(document.getElementById('poster_title').value=='')
+		{
+		alert('Please enter title to proceed')
+		
+		return false;
+		
+		//document.getElementById('txtarea').focus();
+		
+		}
+		else
+		
+		{  
+		 
+		// document.getElementById('prvw').value='Loading...';
+		 
+		 $('#myModal0').modal('show');
+		  
+		  
+		  /*html2canvas(document.body, {
+        allowTaint: true,
+        logging:true,
+        useCORS: true
+    }).then(function(canvas) {
+        document.body.appendChild(canvas);
+    });*/
+	
+	
+	 html2canvas(document.getElementById('html-content-holder'), {
+                allowTaint: true,
+                logging: true,
+                taintTest: false,
+                onrendered: saveImage //0.4.1
+				
+				
+            })
+		  
+		  
+	    /* html2canvas(element, {
+			 
+	  
+
+			 
+         onrendered: function (canvas) {
+                //$("#previewImage").append(canvas);
+                //getCanvas = canvas;
+				
+				
+				//alert('here')
+				saveImage(canvas)
+				
+             }
+         });*/
+    
+	
+		}
+	
+	
+	});
+	
+	
+	
+	
+	
+	 $("#btn-Preview-Image").on('click', function () {
+         html2canvas(element, {
+         onrendered: function (canvas) {
+                $("#previewImage").append(canvas);
+                getCanvas = canvas;
+             }
+         });
+    });
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	$("#btn-Convert-Html2Image").on('click', function () {
+    var imgageData = getCanvas.toDataURL("image/png");
+    // Now browser starts downloading it instead of just showing it
+    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+    $("#btn-Convert-Html2Image").attr("download", "your_pic_name.png").attr("href", newData);
+	});
+	
+	
+
+});
+
+
+function saveImage(canvas) {
+  
+ 
+ var imgageData = canvas.toDataURL("image/png");
+    // Now browser starts downloading it instead of just showing it
+    var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+ 
+ 
+  
+  //var canvasData = canvas.toDataURL("image/png");
+  var xmlHttpReq = false;
+
+  if (window.XMLHttpRequest) {
+    ajax = new XMLHttpRequest();
+  }
+  else if (window.ActiveXObject) {
+    ajax = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  ajax.open("POST", "testSave.php", false);
+  ajax.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  ajax.onreadystatechange = function() {
+	  
+    //console.log(ajax.responseText);
+	
+    if (this.readyState == 4 && this.status == 200)
+	{
+
+
+	if(ajax.responseText=='tile already exists')
+	
+	{
+		
+		$('#myModal0').modal('hide')
+		
+		alert('product with this title already exists please enter another')
+		
+		//document.getElementById('prvw').style.display='block';
+  
+  
+//document.getElementById('postdata').style.display='none';
+		
+		return false;
+
+		
+	}
+	
+	else
+	{
+	
+	$('#myModal0').modal('hide')
+	
+	document.getElementById('filename').value =ajax.responseText;
+	
+	$('#myModal2').modal('show');
+	
+	document.getElementById('up_img').src=ajax.responseText;
+	
+	document.getElementById('loc2').innerHTML=document.getElementById('txtarea').value;
+	
+	document.getElementById('time_spec').innerHTML=document.getElementById('datetime').value;
+	
+	document.getElementById('loc_title').innerHTML=document.getElementById('poster_title').value;
+	
+	document.getElementById('loc_detail').innerHTML=document.getElementById('message').value;
+	
+	document.getElementById('loc_time').innerHTML=document.getElementById('messager').value;
+	
+	document.getElementById('loc_poster').innerHTML=$("#price :selected").text();
+	
+	document.getElementById('loc_email').innerHTML=document.getElementById('emailid').value;
+	
+	  if(document.getElementById('purchase_pdf').checked==true)
+	  
+	  document.getElementById('loc_pdf').innerHTML='PDF Price : $30';
+	  
+	  
+	
+	strr = ajax.responseText
+	
+	res = strr.split('.');
+	
+	
+	var getres = res[0];
+	
+	getres = getres.replace("created/", "");
+	
+	
+	
+	//document.getElementById('pdf_created').href="buy-pdf.php?id=" + getres + "&email=" + document.getElementById('emailid').value;
+	
+	//document.getElementById('pdf_created').href=res[0] + ".pdf";
+	
+	document.getElementById('ready_submit').value='Yes';
+	
+	}
+	
+   }	
+  }
+  
+  var emailid = document.getElementById('emailid').value;
+  
+  emailid = emailid.replace("@", "#");
+  
+  //alert(emailid)
+  
+  var poster_title = document.getElementById('poster_title').value;
+  
+  
+  
+  var message = document.getElementById('message').value;
+  
+  var messager = document.getElementById('messager').value;
+  
+  var price = $("#price :selected").text();
+  
+ var price2 = document.getElementById('price').value;
+  
+  var txtarea = document.getElementById('txtarea').value;
+  
+  var datetime = document.getElementById('datetime').value;
+  
+  var latt = document.getElementById('lat').value;
+  
+  var longt = document.getElementById('long').value;
+  //encodeURI(str)
+  
+  
+  if(document.getElementById('purchase_pdf').checked==true)
+  
+  ajax.send("imgData=" + imgageData + "&emailid=" + emailid + "&poster_title=" + poster_title + "&message=" + message + "&messager=" + messager + "&price=" + price + "&txtarea=" + txtarea +"&datetime="+ datetime +"&lat="+latt+"&long="+longt+"&price2="+price2+"&purchase_pdf=yes");
+  
+  else
+  
+  ajax.send("imgData=" + imgageData + "&emailid=" + emailid + "&poster_title=" + poster_title + "&message=" + message + "&messager=" + messager + "&price=" + price + "&txtarea=" + txtarea +"&datetime="+ datetime +"&lat="+latt+"&long="+longt+"&price2="+price2);
+  
+  
+  if(ajax.responseText!='')
+  {
+  
+  //document.getElementById('prvw').style.display='none';
+  
+  
+  //document.getElementById('postdata').style.display='block';
+  
+  //document.getElementById('postdata').style.width='39%';
+  
+  }
+  
+}
+
+function validateit(x)
+
+{
+	    if(document.getElementById('txtarea').value=='')
+		{
+		alert('Please enter address to proceed')
+		
+		return false;
+		
+		//document.getElementById('txtarea').focus();
+		
+		}
+		
+		else if(document.getElementById('poster_title').value=='')
+		{
+		alert('Please enter title to proceed')
+		
+		return false;
+		
+		//document.getElementById('txtarea').focus();
+		
+		}
+		
+		
+		else if(document.getElementById('ready_submit').value=='')
+		{
+		alert('Please click Proceed Button to Continue')
+		
+		return false;
+		
+		//document.getElementById('txtarea').focus();
+		
+		}
+	
+	
+	}
+
+
+</script>
+
+
+
+<div class="modal fade" id="myModal0" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Processing...</h5>
+        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>-->
+      </div>
+      <div class="modal-body">
+        Saving Your Night Sky Map Design; Please Wait :)
+      </div>
+      <div class="modal-footer">
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+ 
+</body>
+
+</html>
