@@ -1,6 +1,6 @@
 <?php 
 
-$url = "https://maps.googleapis.com/maps/api/geocode/json?address=Islamabad&key=AIzaSyBY6JCet-vhWNGTVkDDghFZ1nDIDiw_Umo";
+$url = "https://maps.googleapis.com/maps/api/geocode/json?address=Islamabad&key=apikey";
 
 $result = file_get_contents($url);
 
